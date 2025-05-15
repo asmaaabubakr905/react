@@ -1,27 +1,42 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-import './App.css'
-import Nav from './components/Nav'
-import HeroSection from './components/Hero section'
-import ProductSection from './components/Product section'
-import Footer from './components/Footer'
+// import { useState } from 'react';
+import './App.css';
+// import Coins from './components/Coins';
+// import Counter from './components/Counter';
+// import According from './components/According';
+//  import Button from './components/Button';
+// import ProductsList from './components/productsList';
+ import Form from './components/Form';
 
 function App() {
- 
+        {/* ----------------q4------------------- */}
+
+  // const sayHello = () => {
+  //   alert("Hello, World!");
+  // };
 
   return (
     <>
-     <Nav />
-     <HeroSection />  
-     <br />
-      <br />
-     <ProductSection />
-     <br />
-      <br />
-     <Footer />
-     </>
-  )
+    {/* <ProductsList /> */}
+    <Form />
+    {/* ---------------q1------------------ */}
+     {/* <Counter /> */}
+
+      {/* ----------------q2------------------- */}
+     {/* <Coins /> */}
+
+       {/* ----------------q3------------------- */}
+      {/* <According /> */}
+      {/* ----------------q4------------------- */}
+      {/* <div className="p-4">
+      <Button
+        label="Click Me"
+        onClick={sayHello}
+        variant="primary"    
+        size="lg"           
+      />
+    </div> */}
+    </>
+  );
 }
 
-export default App
+export default App;
