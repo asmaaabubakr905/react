@@ -1,40 +1,35 @@
-// import { useState } from 'react';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
-// import Coins from './components/Coins';
-// import Counter from './components/Counter';
-// import According from './components/According';
-//  import Button from './components/Button';
-// import ProductsList from './components/productsList';
- import Form from './components/Form';
+import Nav from './components/Nav';
+import ProductsList from './components/productsList';
+import Todo from './components/Todo';
+import Books from './components/Books';
+import Auth from './components/Auth';
+import ProductDet from './components/ProductDet';
+import Cart from './components/Cart';
+import ProductPage from './Pages/ProductPage';  
+
+function Login() {
+  return <h2>Login Page</h2>;
+}
 
 function App() {
-        {/* ----------------q4------------------- */}
-
-  // const sayHello = () => {
-  //   alert("Hello, World!");
-  // };
-
   return (
     <>
-    {/* <ProductsList /> */}
-    <Form />
-    {/* ---------------q1------------------ */}
-     {/* <Counter /> */}
+      <Nav />
+      <Routes>
+        <Route path="/login" element={<Login />} />
 
-      {/* ----------------q2------------------- */}
-     {/* <Coins /> */}
-
-       {/* ----------------q3------------------- */}
-      {/* <According /> */}
-      {/* ----------------q4------------------- */}
-      {/* <div className="p-4">
-      <Button
-        label="Click Me"
-        onClick={sayHello}
-        variant="primary"    
-        size="lg"           
-      />
-    </div> */}
+        <Route element={<Auth />}>
+          <Route path="/todo" element={<Todo />} />
+          <Route path="/product" element={<ProductsList />} />
+          <Route path="/productPage" element={<ProductPage ></ProductPage >} />
+          {/* <Route path="/books" element={<Books ></Books >} /> */}
+          <Route path='/cart' element={<Cart></Cart>}></Route>
+          <Route path='product/:id' element={<ProductDet />}></Route>
+        </Route>
+      </Routes>
     </>
   );
 }

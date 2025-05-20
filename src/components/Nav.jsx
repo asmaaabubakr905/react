@@ -1,64 +1,54 @@
-import React from 'react'
-import './Nav.css'
-import image from '../assets/Logo (2).svg'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/Logo (2).svg';
+
 
 function Nav() {
   return (
-   <>
-  <div className="announcement-bar">
-    <p className="announcement-text">FREE Shipping On Orders Over $100 🎉</p>
-</div>
+    <header className="bg-yellow-50 shadow-md">
+      <div className="container mx-auto flex items-center justify-between p-4">
+        <Link to="/" className="flex items-center">
+          <img src={logo} alt="Logo" className="h-10 w-auto" />
+          <span className="ml-2 font-bold text-xl text-gray-800">Brand</span>
+        </Link>
 
-<nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#F9F5EA' }}>
-    <div className="container">
-        <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-        >
-            <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <a className="navbar-brand d-lg-none d-xl-none" href="./index.html">
-            <img src={image} alt="Scandleted Logo" />
-        </a>
-
-        <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-                <li className="nav-item">
-                    <a className="nav-link" href="./shop.html">SHOP</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="./about.html">ABOUT</a>
-                </li>
-               <li className="nav-item">
-                    <a className="nav-link" href="./about.html">Blog</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="./testimonials.html">TESTIMONIALS</a>
-                </li>
-            </ul>
-
-            <a className="navbar-brand d-none d-lg-block" href="./index.html">
-                <img src={image} alt="Scandleted Logo" />
-            </a>
-
-            <div className="navbar-icons">
-                <i className="fa-solid fa-magnifying-glass"></i>
-                <i className="fa-regular fa-user"></i>
-                <i className="fa-solid fa-bag-shopping"></i>
-                <button className="btn btn-login" data-bs-target="#loginform" data-bs-toggle="modal">LOG IN</button>
-            </div>
-        </div>
-    </div>
-</nav>
-</>
-
-  )
+        <nav>
+          <ul className="flex space-x-6 text-gray-700 font-medium">
+            <li>
+              <Link to="/todo" className="hover:text-yellow-600 transition-colors">
+                TODO
+              </Link>
+            </li>
+            <li>
+              <Link to="/product" className="hover:text-yellow-600 transition-colors">
+                PRODUCTS
+              </Link>
+            </li>
+            <li>
+              <Link to="/productPage" className="hover:text-yellow-600 transition-colors">
+                BOOKS
+              </Link>
+            </li>
+             {/* <li>
+              <Link to="/book" className="hover:text-yellow-600 transition-colors">
+                BOOKS
+              </Link>
+            </li> */}
+            <li>
+              <Link to="/cart" className="hover:text-yellow-600 transition-colors">
+                cart
+              </Link>
+            </li>
+            <li>
+              <Link to="/login" className="hover:text-yellow-600 transition-colors">
+                LOGIN
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  );
 }
 
-export default Nav
+export default Nav;

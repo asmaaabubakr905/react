@@ -1,10 +1,23 @@
-import React from 'react'
-import { useState } from 'react';
-import productsData from '../productsData'
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
+// import productsData from '../productsData'
 function ProductsList() {
+   let [arr, setArr] = useState([]);
+
+    useEffect(() => { // once time 
+        getData();
+    }, [])
+
+    async function getData() {
+        let res = await axios.get("https://fakestoreapi.com/products")
+        console.log(res);
+        setArr([...res.data]);
+    }
+   
     //search
     const [search, setSearch] = useState("");
-    let filteredProducts = productsData.filter((product) => {
+    let filteredProducts = arr.filter((product) => {
         return product.title.includes(search);
     });
     //Filtercategory
@@ -37,7 +50,8 @@ function ProductsList() {
                         <h5 className="card-title">{product.title}</h5>
                         <p className="card-text">{product.description}</p>
                         <p className="card-text">${product.price}</p>
-                        <button className="btn btn-primary">Add to Cart</button>
+                        <Link to={`/product/${product.id}`} className="btn btn-primary">Add to Cart</Link>
+                        
                     </div>
                 </div>
             </div>
